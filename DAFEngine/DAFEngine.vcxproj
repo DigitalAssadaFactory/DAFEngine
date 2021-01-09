@@ -1,0 +1,278 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\ECS.h" />
+    <ClInclude Include="src\ECS\backup.h" />
+    <ClInclude Include="src\ECS\C_Camera.h" />
+    <ClInclude Include="src\ECS\C_Mesh.h" />
+    <ClInclude Include="src\ECS\C_Renderer.h" />
+    <ClInclude Include="src\ECS\C_RigidBody.h" />
+    <ClInclude Include="src\ECS\C_Shader.h" />
+    <ClInclude Include="src\ECS\C_Texture2D.h" />
+    <ClInclude Include="src\ECS\C_Transform.h" />
+    <ClInclude Include="src\ECS\ECSComponent_TEMPLATE_MACRO.h" />
+    <ClInclude Include="src\ECS\ECSCore.h" />
+    <ClInclude Include="src\ECS\ECS_MACRO.h" />
+    <ClInclude Include="src\ECS\S_Graphics.h" />
+    <ClInclude Include="src\ECS\S_Physics.h" />
+    <ClInclude Include="src\ECS\U_Basic.h" />
+    <ClInclude Include="src\ECS\U_Graphics.h" />
+    <ClInclude Include="src\Engine.h" />
+    <ClInclude Include="src\Geometry.h" />
+    <ClInclude Include="src\Geometry\Cube.h" />
+    <ClInclude Include="src\Geometry\Hexagon.h" />
+    <ClInclude Include="src\Geometry\Polygon.h" />
+    <ClInclude Include="src\Geometry\Quad.h" />
+    <ClInclude Include="src\Geometry\SingleMatrixBuffer.h" />
+    <ClInclude Include="src\Geometry\Vertex.h" />
+    <ClInclude Include="src\HID.h" />
+    <ClInclude Include="src\HID\Keyboard.h" />
+    <ClInclude Include="src\HID\Mouse.h" />
+    <ClInclude Include="src\ImGUI\imconfig.h" />
+    <ClInclude Include="src\ImGUI\imgui.h" />
+    <ClInclude Include="src\ImGUI\imgui_impl_dx11.h" />
+    <ClInclude Include="src\ImGUI\imgui_impl_win32.h" />
+    <ClInclude Include="src\ImGUI\imgui_internal.h" />
+    <ClInclude Include="src\ImGUI\imstb_rectpack.h" />
+    <ClInclude Include="src\ImGUI\imstb_textedit.h" />
+    <ClInclude Include="src\ImGUI\imstb_truetype.h" />
+    <ClInclude Include="src\Utility.h" />
+    <ClInclude Include="src\Utility\Caster.h" />
+    <ClInclude Include="src\Utility\DYNAMIC_ARRAY_MACRO.h" />
+    <ClInclude Include="src\Utility\Loader.h" />
+    <ClInclude Include="src\Utility\Logger.h" />
+    <ClInclude Include="src\Utility\Time.h" />
+    <ClInclude Include="src\Window.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\ECS\C_Camera.cpp" />
+    <ClCompile Include="src\ECS\C_Mesh.cpp" />
+    <ClCompile Include="src\ECS\C_Renderer.cpp" />
+    <ClCompile Include="src\ECS\C_RigidBody.cpp" />
+    <ClCompile Include="src\ECS\C_Shader.cpp" />
+    <ClCompile Include="src\ECS\C_Texture2D.cpp" />
+    <ClCompile Include="src\ECS\C_Transform.cpp" />
+    <ClCompile Include="src\ECS\ECSCore.cpp" />
+    <ClCompile Include="src\ECS\S_Graphics.cpp" />
+    <ClCompile Include="src\ECS\S_Physics.cpp" />
+    <ClCompile Include="src\ECS\U_Basic.cpp" />
+    <ClCompile Include="src\ECS\U_Graphics.cpp" />
+    <ClCompile Include="src\Engine.cpp" />
+    <ClCompile Include="src\EntryPoint.cpp" />
+    <ClCompile Include="src\Geometry\Cube.cpp" />
+    <ClCompile Include="src\Geometry\Hexagon.cpp" />
+    <ClCompile Include="src\Geometry\Polygon.cpp" />
+    <ClCompile Include="src\Geometry\Quad.cpp" />
+    <ClCompile Include="src\Geometry\Vertex.cpp" />
+    <ClCompile Include="src\HID\Keyboard.cpp" />
+    <ClCompile Include="src\HID\Mouse.cpp" />
+    <ClCompile Include="src\ImGUI\imgui.cpp" />
+    <ClCompile Include="src\ImGUI\imgui_demo.cpp" />
+    <ClCompile Include="src\ImGUI\imgui_draw.cpp" />
+    <ClCompile Include="src\ImGUI\imgui_impl_dx11.cpp" />
+    <ClCompile Include="src\ImGUI\imgui_impl_win32.cpp" />
+    <ClCompile Include="src\ImGUI\imgui_widgets.cpp" />
+    <ClCompile Include="src\Utility\Caster.cpp" />
+    <ClCompile Include="src\Utility\Loader.cpp" />
+    <ClCompile Include="src\Utility\Logger.cpp" />
+    <ClCompile Include="src\Utility\Time.cpp" />
+    <ClCompile Include="src\Window.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <FxCompile Include="src\HLSL\DefaultCS.hlsl">
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Compute</ShaderType>
+      <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">5.0</ShaderModel>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Compute</ShaderType>
+      <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">5.0</ShaderModel>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Compute</ShaderType>
+      <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">5.0</ShaderModel>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Compute</ShaderType>
+      <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Release|x64'">5.0</ShaderModel>
+    </FxCompile>
+    <FxCompile Include="src\HLSL\DefaultPS.hlsl">
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Pixel</ShaderType>
+      <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">5.0</ShaderModel>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Pixel</ShaderType>
+      <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">5.0</ShaderModel>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Pixel</ShaderType>
+      <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">5.0</ShaderModel>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Pixel</ShaderType>
+      <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Release|x64'">5.0</ShaderModel>
+    </FxCompile>
+    <FxCompile Include="src\HLSL\DefaultVS.hlsl">
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Vertex</ShaderType>
+      <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">5.0</ShaderModel>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Vertex</ShaderType>
+      <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">5.0</ShaderModel>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Vertex</ShaderType>
+      <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">5.0</ShaderModel>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Vertex</ShaderType>
+      <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Release|x64'">5.0</ShaderModel>
+    </FxCompile>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>16.0</VCProjectVersion>
+    <Keyword>Win32Proj</Keyword>
+    <ProjectGuid>{b3d0b463-c65c-4c73-81ec-8e7db4c7a24f}</ProjectGuid>
+    <RootNamespace>DAFEngine</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+    <OutDir>$(SolutionDir)bin/$(Configuration)_$(Platform)/</OutDir>
+    <IntDir>$(SolutionDir)bin/intermediate/$(Configuration)_$(Platform)/</IntDir>
+    <IncludePath>$(ProjectDir)inc;$(VC_IncludePath);$(WindowsSDK_IncludePath);</IncludePath>
+    <LibraryPath>$(ProjectDir)lib/$(Platform)/Bullet_$(Configuration)_$(Platform);$(ProjectDir)lib/$(Platform);$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+    <OutDir>$(SolutionDir)bin/$(Configuration)_$(Platform)/</OutDir>
+    <IntDir>$(SolutionDir)bin/intermediate/$(Configuration)_$(Platform)/</IntDir>
+    <IncludePath>$(ProjectDir)inc;$(VC_IncludePath);$(WindowsSDK_IncludePath);</IncludePath>
+    <LibraryPath>$(ProjectDir)lib/$(Platform)/Bullet_$(Configuration)_$(Platform);$(ProjectDir)lib/$(Platform);$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LinkIncremental>true</LinkIncremental>
+    <OutDir>$(SolutionDir)bin/$(Configuration)_$(Platform)/</OutDir>
+    <IntDir>$(SolutionDir)bin/intermediate/$(Configuration)_$(Platform)/</IntDir>
+    <IncludePath>$(ProjectDir)inc;$(VC_IncludePath);$(WindowsSDK_IncludePath);</IncludePath>
+    <LibraryPath>$(ProjectDir)lib/$(Platform)/Bullet_$(Configuration)_$(Platform);$(ProjectDir)lib/$(Platform);$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <LinkIncremental>false</LinkIncremental>
+    <OutDir>$(SolutionDir)bin/$(Configuration)_$(Platform)/</OutDir>
+    <IntDir>$(SolutionDir)bin/intermediate/$(Configuration)_$(Platform)/</IntDir>
+    <IncludePath>$(ProjectDir)inc;$(VC_IncludePath);$(WindowsSDK_IncludePath);</IncludePath>
+    <LibraryPath>$(ProjectDir)lib/$(Platform)/Bullet_$(Configuration)_$(Platform);$(ProjectDir)lib/$(Platform);$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>Bullet3OpenCL_clew_vs2010_x86_debug.lib;BulletWorldImporter_Debug.lib;clsocket_Debug.lib;HACD_Debug.lib;BulletRobotics_Debug.lib;gtest_Debug.lib;gwen_Debug.lib;BulletXmlWorldImporter_Debug.lib;Bullet2FileLoader_Debug.lib;Bullet3Collision_Debug.lib;Bullet3Common_Debug.lib;Bullet3Dynamics_Debug.lib;Bullet3Geometry_Debug.lib;BulletInverseDynamics_Debug.lib;BulletInverseDynamicsUtils_Debug.lib;BulletSoftBody_Debug.lib;BussIK_Debug.lib;ConvexDecomposition_Debug.lib;GIMPACTUtils_Debug.lib;LinearMath_Debug.lib;BulletFileLoader_Debug.lib;BulletDynamics_Debug.lib;BulletCollision_Debug.lib;dxgi.lib;d3d11.lib;d3dcompiler.lib;Assimp_$(Configuration)_$(Platform).lib;DirectXTK_$(Configuration)_$(Platform).lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>Bullet3OpenCL_clew.lib;BulletWorldImporter.lib;clsocket.lib;HACD.lib;BulletRobotics.lib;gtest.lib;gwen.lib;BulletXmlWorldImporter.lib;Bullet2FileLoader.lib;Bullet3Collision.lib;Bullet3Common.lib;Bullet3Dynamics.lib;Bullet3Geometry.lib;BulletInverseDynamics.lib;BulletInverseDynamicsUtils.lib;BulletSoftBody.lib;BussIK.lib;ConvexDecomposition.lib;GIMPACTUtils.lib;LinearMath.lib;BulletFileLoader.lib;BulletDynamics.lib;BulletCollision.lib;dxgi.lib;d3d11.lib;d3dcompiler.lib;Assimp_$(Configuration)_$(Platform).lib;DirectXTK_$(Configuration)_$(Platform).lib</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>_DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>Bullet3OpenCL_clew_vs2010_x64_debug.lib;BulletWorldImporter_vs2010_x64_debug.lib;clsocket_vs2010_x64_debug.lib;HACD_vs2010_x64_debug.lib;BulletRobotics_vs2010_x64_debug.lib;gtest_vs2010_x64_debug.lib;gwen_vs2010_x64_debug.lib;BulletXmlWorldImporter_vs2010_x64_debug.lib;Bullet2FileLoader_vs2010_x64_debug.lib;Bullet3Collision_vs2010_x64_debug.lib;Bullet3Common_vs2010_x64_debug.lib;Bullet3Dynamics_vs2010_x64_debug.lib;Bullet3Geometry_vs2010_x64_debug.lib;BulletInverseDynamics_vs2010_x64_debug.lib;BulletInverseDynamicsUtils_vs2010_x64_debug.lib;BulletSoftBody_vs2010_x64_debug.lib;BussIK_vs2010_x64_debug.lib;ConvexDecomposition_vs2010_x64_debug.lib;LinearMath_vs2010_x64_debug.lib;BulletFileLoader_vs2010_x64_debug.lib;BulletDynamics_vs2010_x64_debug.lib;BulletCollision_vs2010_x64_debug.lib;dxgi.lib;d3d11.lib;d3dcompiler.lib;Assimp_Debug_x64.lib;DirectXTK_Debug_x64.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>NDEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>Bullet3OpenCL_clew.lib;BulletWorldImporter.lib;clsocket.lib;HACD.lib;BulletRobotics.lib;gtest.lib;gwen.lib;BulletXmlWorldImporter.lib;Bullet2FileLoader.lib;Bullet3Collision.lib;Bullet3Common.lib;Bullet3Dynamics.lib;Bullet3Geometry.lib;BulletInverseDynamics.lib;BulletInverseDynamicsUtils.lib;BulletSoftBody.lib;BussIK.lib;ConvexDecomposition.lib;GIMPACTUtils.lib;LinearMath.lib;BulletFileLoader.lib;BulletDynamics.lib;BulletCollision.lib;dxgi.lib;d3d11.lib;d3dcompiler.lib;Assimp_$(Configuration)_$(Platform).lib;DirectXTK_$(Configuration)_$(Platform).lib</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

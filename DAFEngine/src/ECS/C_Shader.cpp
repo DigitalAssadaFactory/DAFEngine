@@ -1,0 +1,50 @@
+#include "C_Shader.h"
+
+
+
+namespace DAF
+{
+
+	INIT_ECSComponent_02(
+		InputLayout,
+		std::string, name,
+		std::vector<D3D11_INPUT_ELEMENT_DESC>, description
+	)
+
+	INIT_ECSComponent_09(
+		VertexShader,
+		std::string, name,
+		std::string, model,
+		std::string, path,
+		std::string, inputLayout,
+		Microsoft::WRL::ComPtr<ID3DBlob>, blob,
+		Microsoft::WRL::ComPtr<ID3D11InputLayout>, DX11InputLayout,
+		Microsoft::WRL::ComPtr<ID3D11VertexShader>, DX11VertexShader,
+		std::vector < Microsoft::WRL::ComPtr<ID3D11Buffer> >, DX11ConstantBuffers,
+		std::vector < Microsoft::WRL::ComPtr<ID3D11Buffer> >, DX11ResourceBuffers
+	)
+
+	INIT_ECSComponent_07(
+		PixelShader,
+		std::string, name,
+		std::string, model,
+		std::string, path,
+		Microsoft::WRL::ComPtr<ID3DBlob>, blob,
+		Microsoft::WRL::ComPtr<ID3D11PixelShader>, DX11PixelShader,
+		std::vector < Microsoft::WRL::ComPtr<ID3D11Buffer> >, DX11ConstantBuffers,
+		std::vector < Microsoft::WRL::ComPtr<ID3D11Buffer> >, DX11ResourceBuffers
+	)
+
+	INIT_ECSComponent_08(
+		ComputeShader,
+		std::string, name,
+		std::string, model,
+		std::string, path,
+		Microsoft::WRL::ComPtr<ID3DBlob>, blob,
+		Microsoft::WRL::ComPtr <ID3D11ComputeShader>, DX11ComputeShader,
+		std::vector < Microsoft::WRL::ComPtr<ID3D11Buffer> >, DX11ConstantBuffers,
+		std::vector < Microsoft::WRL::ComPtr<ID3D11Buffer> >, DX11ResourceBuffers,
+		std::vector < Microsoft::WRL::ComPtr<ID3D11Buffer> >, DX11UnorderedAccessBuffers
+	)
+
+}

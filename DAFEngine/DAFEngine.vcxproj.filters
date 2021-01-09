@@ -1,0 +1,299 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="ECS">
+      <UniqueIdentifier>{2b40cdf8-b525-4b27-99d9-ad197f2bd2da}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Window">
+      <UniqueIdentifier>{292791b9-2012-48dd-a7d1-f0fe10c1f297}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="HID">
+      <UniqueIdentifier>{9dbd3702-6a17-441b-bf2b-806bc5b27857}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="HLSL">
+      <UniqueIdentifier>{38d7dcaa-a0a1-417c-a3f0-28025327ea14}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Geometry">
+      <UniqueIdentifier>{be721cb7-ecfb-4c59-b38d-fa42e43a022d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Utility">
+      <UniqueIdentifier>{95868841-8e90-459e-8123-72f3d4832b8f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ImGUI">
+      <UniqueIdentifier>{4cb80892-17a9-44dd-9871-341101648607}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ECS\h">
+      <UniqueIdentifier>{8390aedb-401b-4db1-924e-4e5b6a432746}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ECS\cpp">
+      <UniqueIdentifier>{fc13bd83-a7ee-4d5d-8490-0e2dda3d54f2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="HID\h">
+      <UniqueIdentifier>{3365a031-da9c-4da9-a308-19cb4a50c963}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="HID\cpp">
+      <UniqueIdentifier>{ba568d72-cadb-421b-9a9f-720ec8085cd9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Geometry\h">
+      <UniqueIdentifier>{60b30db0-f00d-4adf-8d9e-c23856904151}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Geometry\cpp">
+      <UniqueIdentifier>{34f6296c-81d3-47a6-933b-958b71d12960}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ImGUI\h">
+      <UniqueIdentifier>{560a4023-45b0-4300-8465-58cdd2a86796}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ImGUI\cpp">
+      <UniqueIdentifier>{49b19c8b-91a3-481c-aa31-447ed7c5f0de}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Utility\h">
+      <UniqueIdentifier>{d8a05a89-5633-4bd2-a0b4-14f412d87866}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Utility\cpp">
+      <UniqueIdentifier>{2f9063d6-6551-430e-831a-0cb8a7a1aaa0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Window\h">
+      <UniqueIdentifier>{dc531e47-22d0-4894-bedc-2f7a9910a45f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Window\cpp">
+      <UniqueIdentifier>{e5683da5-1e71-46df-b0bc-f3cd0eca8d07}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\ECS\backup.h">
+      <Filter>ECS\h</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ECS\C_Camera.h">
+      <Filter>ECS\h</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ECS\C_Mesh.h">
+      <Filter>ECS\h</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ECS\C_Renderer.h">
+      <Filter>ECS\h</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ECS\C_RigidBody.h">
+      <Filter>ECS\h</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ECS\C_Shader.h">
+      <Filter>ECS\h</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ECS\C_Texture2D.h">
+      <Filter>ECS\h</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ECS\C_Transform.h">
+      <Filter>ECS\h</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ECS\ECS_MACRO.h">
+      <Filter>ECS\h</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ECS\ECSComponent_TEMPLATE_MACRO.h">
+      <Filter>ECS\h</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ECS\ECSCore.h">
+      <Filter>ECS\h</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ECS\S_Graphics.h">
+      <Filter>ECS\h</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ECS\S_Physics.h">
+      <Filter>ECS\h</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ECS\U_Basic.h">
+      <Filter>ECS\h</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ECS\U_Graphics.h">
+      <Filter>ECS\h</Filter>
+    </ClInclude>
+    <ClInclude Include="src\HID\Keyboard.h">
+      <Filter>HID\h</Filter>
+    </ClInclude>
+    <ClInclude Include="src\HID\Mouse.h">
+      <Filter>HID\h</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Geometry\Cube.h">
+      <Filter>Geometry\h</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Geometry\Hexagon.h">
+      <Filter>Geometry\h</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Geometry\Polygon.h">
+      <Filter>Geometry\h</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Geometry\Quad.h">
+      <Filter>Geometry\h</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Geometry\SingleMatrixBuffer.h">
+      <Filter>Geometry\h</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Geometry\Vertex.h">
+      <Filter>Geometry\h</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ImGUI\imconfig.h">
+      <Filter>ImGUI\h</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ImGUI\imgui.h">
+      <Filter>ImGUI\h</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ImGUI\imgui_impl_dx11.h">
+      <Filter>ImGUI\h</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ImGUI\imgui_impl_win32.h">
+      <Filter>ImGUI\h</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ImGUI\imgui_internal.h">
+      <Filter>ImGUI\h</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ImGUI\imstb_rectpack.h">
+      <Filter>ImGUI\h</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ImGUI\imstb_textedit.h">
+      <Filter>ImGUI\h</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ImGUI\imstb_truetype.h">
+      <Filter>ImGUI\h</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Utility\Caster.h">
+      <Filter>Utility\h</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Utility\DYNAMIC_ARRAY_MACRO.h">
+      <Filter>Utility\h</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Utility\Loader.h">
+      <Filter>Utility\h</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Utility\Logger.h">
+      <Filter>Utility\h</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Utility\Time.h">
+      <Filter>Utility\h</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Engine.h">
+      <Filter>Window\h</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Window.h">
+      <Filter>Window\h</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Utility.h">
+      <Filter>Utility\h</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Geometry.h">
+      <Filter>Geometry\h</Filter>
+    </ClInclude>
+    <ClInclude Include="src\HID.h">
+      <Filter>HID\h</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ECS.h">
+      <Filter>ECS\h</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\ECS\C_Camera.cpp">
+      <Filter>ECS\cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ECS\C_Mesh.cpp">
+      <Filter>ECS\cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ECS\C_Renderer.cpp">
+      <Filter>ECS\cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ECS\C_RigidBody.cpp">
+      <Filter>ECS\cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ECS\C_Shader.cpp">
+      <Filter>ECS\cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ECS\C_Texture2D.cpp">
+      <Filter>ECS\cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ECS\C_Transform.cpp">
+      <Filter>ECS\cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ECS\ECSCore.cpp">
+      <Filter>ECS\cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ECS\S_Graphics.cpp">
+      <Filter>ECS\cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ECS\S_Physics.cpp">
+      <Filter>ECS\cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ECS\U_Basic.cpp">
+      <Filter>ECS\cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ECS\U_Graphics.cpp">
+      <Filter>ECS\cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="src\HID\Keyboard.cpp">
+      <Filter>HID\cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="src\HID\Mouse.cpp">
+      <Filter>HID\cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Geometry\Cube.cpp">
+      <Filter>Geometry\cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Geometry\Hexagon.cpp">
+      <Filter>Geometry\cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Geometry\Polygon.cpp">
+      <Filter>Geometry\cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Geometry\Quad.cpp">
+      <Filter>Geometry\cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Geometry\Vertex.cpp">
+      <Filter>Geometry\cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ImGUI\imgui.cpp">
+      <Filter>ImGUI\cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ImGUI\imgui_demo.cpp">
+      <Filter>ImGUI\cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ImGUI\imgui_draw.cpp">
+      <Filter>ImGUI\cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ImGUI\imgui_impl_dx11.cpp">
+      <Filter>ImGUI\cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ImGUI\imgui_impl_win32.cpp">
+      <Filter>ImGUI\cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ImGUI\imgui_widgets.cpp">
+      <Filter>ImGUI\cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Utility\Caster.cpp">
+      <Filter>Utility\cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Utility\Loader.cpp">
+      <Filter>Utility\cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Utility\Logger.cpp">
+      <Filter>Utility\cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Utility\Time.cpp">
+      <Filter>Utility\cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Engine.cpp">
+      <Filter>Window\cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="src\EntryPoint.cpp">
+      <Filter>Window\cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Window.cpp">
+      <Filter>Window\cpp</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <FxCompile Include="src\HLSL\DefaultCS.hlsl">
+      <Filter>HLSL</Filter>
+    </FxCompile>
+    <FxCompile Include="src\HLSL\DefaultPS.hlsl">
+      <Filter>HLSL</Filter>
+    </FxCompile>
+    <FxCompile Include="src\HLSL\DefaultVS.hlsl">
+      <Filter>HLSL</Filter>
+    </FxCompile>
+  </ItemGroup>
+</Project>
