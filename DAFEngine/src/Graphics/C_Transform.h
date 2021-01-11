@@ -1,5 +1,5 @@
 #pragma once
-#include "ECSCore.h"
+#include "../ECS.h"
 
 
 namespace DAF

@@ -58,30 +58,36 @@
     <Filter Include="Window\cpp">
       <UniqueIdentifier>{e5683da5-1e71-46df-b0bc-f3cd0eca8d07}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Network">
+      <UniqueIdentifier>{37a1a60f-7991-4ea0-9eed-30a2049578d0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Network\h">
+      <UniqueIdentifier>{afbeac21-b94a-4704-a60f-97b031582ba7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Network\cpp">
+      <UniqueIdentifier>{20657cda-1747-43f5-896c-7c5b5dc3fb23}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Graphics">
+      <UniqueIdentifier>{1635c452-b889-4aee-bfd4-bee90194580e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Physics">
+      <UniqueIdentifier>{8d3f4b9e-42c5-4744-a8fc-a2057f53832e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Graphics\h">
+      <UniqueIdentifier>{d98ae987-aeee-4690-8540-a3ea9d500303}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Graphics\cpp">
+      <UniqueIdentifier>{275d1653-c115-496e-94c8-d6a9a129c072}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Physics\h">
+      <UniqueIdentifier>{c91668d9-44bf-463d-b44a-efacf75c0bcb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Physics\cpp">
+      <UniqueIdentifier>{f65988b8-1941-47a3-bfe9-24fb97cec8e6}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\ECS\backup.h">
-      <Filter>ECS\h</Filter>
-    </ClInclude>
-    <ClInclude Include="src\ECS\C_Camera.h">
-      <Filter>ECS\h</Filter>
-    </ClInclude>
-    <ClInclude Include="src\ECS\C_Mesh.h">
-      <Filter>ECS\h</Filter>
-    </ClInclude>
-    <ClInclude Include="src\ECS\C_Renderer.h">
-      <Filter>ECS\h</Filter>
-    </ClInclude>
-    <ClInclude Include="src\ECS\C_RigidBody.h">
-      <Filter>ECS\h</Filter>
-    </ClInclude>
-    <ClInclude Include="src\ECS\C_Shader.h">
-      <Filter>ECS\h</Filter>
-    </ClInclude>
-    <ClInclude Include="src\ECS\C_Texture2D.h">
-      <Filter>ECS\h</Filter>
-    </ClInclude>
-    <ClInclude Include="src\ECS\C_Transform.h">
       <Filter>ECS\h</Filter>
     </ClInclude>
     <ClInclude Include="src\ECS\ECS_MACRO.h">
@@ -91,18 +97,6 @@
       <Filter>ECS\h</Filter>
     </ClInclude>
     <ClInclude Include="src\ECS\ECSCore.h">
-      <Filter>ECS\h</Filter>
-    </ClInclude>
-    <ClInclude Include="src\ECS\S_Graphics.h">
-      <Filter>ECS\h</Filter>
-    </ClInclude>
-    <ClInclude Include="src\ECS\S_Physics.h">
-      <Filter>ECS\h</Filter>
-    </ClInclude>
-    <ClInclude Include="src\ECS\U_Basic.h">
-      <Filter>ECS\h</Filter>
-    </ClInclude>
-    <ClInclude Include="src\ECS\U_Graphics.h">
       <Filter>ECS\h</Filter>
     </ClInclude>
     <ClInclude Include="src\HID\Keyboard.h">
@@ -186,42 +180,69 @@
     <ClInclude Include="src\ECS.h">
       <Filter>ECS\h</Filter>
     </ClInclude>
+    <ClInclude Include="src\Network.h">
+      <Filter>Network\h</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Network\Server.h">
+      <Filter>Network\h</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Network\Client.h">
+      <Filter>Network\h</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Geometry\Prism.h">
+      <Filter>Geometry\h</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Utility\Math.h">
+      <Filter>Utility\h</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Utility\DXUtility.h">
+      <Filter>Utility\h</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Graphics\C_Camera.h">
+      <Filter>Graphics\h</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Graphics\C_Mesh.h">
+      <Filter>Graphics\h</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Graphics\C_Renderer.h">
+      <Filter>Graphics\h</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Graphics\C_Shader.h">
+      <Filter>Graphics\h</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Graphics\C_Texture2D.h">
+      <Filter>Graphics\h</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Graphics\C_Transform.h">
+      <Filter>Graphics\h</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Graphics\S_Graphics.h">
+      <Filter>Graphics\h</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Graphics\U_Graphics.h">
+      <Filter>Graphics\h</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Physics\C_RigidBody.h">
+      <Filter>Physics\h</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Physics\S_Physics.h">
+      <Filter>Physics\h</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Physics.h">
+      <Filter>Physics\h</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Graphics.h">
+      <Filter>Graphics\h</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Graphics\C_Light.h">
+      <Filter>Graphics\h</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Geometry\BaseMesh.h">
+      <Filter>Geometry\h</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\ECS\C_Camera.cpp">
-      <Filter>ECS\cpp</Filter>
-    </ClCompile>
-    <ClCompile Include="src\ECS\C_Mesh.cpp">
-      <Filter>ECS\cpp</Filter>
-    </ClCompile>
-    <ClCompile Include="src\ECS\C_Renderer.cpp">
-      <Filter>ECS\cpp</Filter>
-    </ClCompile>
-    <ClCompile Include="src\ECS\C_RigidBody.cpp">
-      <Filter>ECS\cpp</Filter>
-    </ClCompile>
-    <ClCompile Include="src\ECS\C_Shader.cpp">
-      <Filter>ECS\cpp</Filter>
-    </ClCompile>
-    <ClCompile Include="src\ECS\C_Texture2D.cpp">
-      <Filter>ECS\cpp</Filter>
-    </ClCompile>
-    <ClCompile Include="src\ECS\C_Transform.cpp">
-      <Filter>ECS\cpp</Filter>
-    </ClCompile>
     <ClCompile Include="src\ECS\ECSCore.cpp">
-      <Filter>ECS\cpp</Filter>
-    </ClCompile>
-    <ClCompile Include="src\ECS\S_Graphics.cpp">
-      <Filter>ECS\cpp</Filter>
-    </ClCompile>
-    <ClCompile Include="src\ECS\S_Physics.cpp">
-      <Filter>ECS\cpp</Filter>
-    </ClCompile>
-    <ClCompile Include="src\ECS\U_Basic.cpp">
-      <Filter>ECS\cpp</Filter>
-    </ClCompile>
-    <ClCompile Include="src\ECS\U_Graphics.cpp">
       <Filter>ECS\cpp</Filter>
     </ClCompile>
     <ClCompile Include="src\HID\Keyboard.cpp">
@@ -283,6 +304,57 @@
     </ClCompile>
     <ClCompile Include="src\Window.cpp">
       <Filter>Window\cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Network\Server.cpp">
+      <Filter>Network\cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Network\Client.cpp">
+      <Filter>Network\cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Geometry\Prism.cpp">
+      <Filter>Geometry\cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Utility\Math.cpp">
+      <Filter>Utility\cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Utility\DXUtility.cpp">
+      <Filter>Utility\cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Graphics\C_Camera.cpp">
+      <Filter>Graphics\cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Graphics\C_Mesh.cpp">
+      <Filter>Graphics\cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Graphics\C_Renderer.cpp">
+      <Filter>Graphics\cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Graphics\C_Shader.cpp">
+      <Filter>Graphics\cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Graphics\C_Texture2D.cpp">
+      <Filter>Graphics\cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Graphics\C_Transform.cpp">
+      <Filter>Graphics\cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Graphics\S_Graphics.cpp">
+      <Filter>Graphics\cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Graphics\U_Graphics.cpp">
+      <Filter>Graphics\cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Physics\C_RigidBody.cpp">
+      <Filter>Physics\cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Physics\S_Physics.cpp">
+      <Filter>Physics\cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Graphics\C_Light.cpp">
+      <Filter>Graphics\cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Geometry\BaseMesh.cpp">
+      <Filter>Geometry\cpp</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

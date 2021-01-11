@@ -4,7 +4,17 @@ cbuffer MatrixBuffer : register(b0)
     matrix mvp;
 };
 
+struct Light
+{
+	float3 position;
+	float3 direction;
+	float3 color;
+	float intensity;
+	int type;
+};
+
 StructuredBuffer<float4x4> transform : register(t0);
+//StructuredBuffer<Light> light : register(t1);
 
 struct Input {
 	float4 position : POSITION;
@@ -33,6 +43,6 @@ Output main(Input i, uint id : SV_InstanceID)
     o.color = i.color;
     o.uv = i.uv;
 	o.normal = normalize(i.normal);
-
+		
     return o;
 }

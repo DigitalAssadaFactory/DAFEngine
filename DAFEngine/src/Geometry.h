@@ -9,3 +9,4 @@
 #include "Geometry/Quad.h"
 #include "Geometry/Hexagon.h"
 #include "Geometry/Polygon.h"
+#include "Geometry/Prism.h"

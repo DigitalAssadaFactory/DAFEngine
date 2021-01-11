@@ -1,5 +1,4 @@
 #pragma once
-#include "ECSCore.h"
 #include <DirectXMath.h>
 #include <dxgi.h>
 #include <d3d11.h>
@@ -10,6 +9,8 @@
 
 
 namespace DirectX {
+	bool operator==(const XMFLOAT4& lhs, const XMFLOAT4& rhs);
+	bool operator!=(const XMFLOAT4& lhs, const XMFLOAT4& rhs);
 	bool operator==(const XMFLOAT3& lhs, const XMFLOAT3& rhs);
 	bool operator!=(const XMFLOAT3& lhs, const XMFLOAT3& rhs);
 
@@ -26,8 +27,8 @@ namespace DirectX {
 	XMFLOAT3 operator-(const XMFLOAT3& lhs, const XMFLOAT4& rhs);
 	XMFLOAT3 operator+(const XMFLOAT3& lhs, const XMFLOAT2& rhs);
 	XMFLOAT3 operator-(const XMFLOAT3& lhs, const XMFLOAT2& rhs);
-	
-	
+
+
 	XMFLOAT2 operator+(const XMFLOAT2& lhs, const XMFLOAT2& rhs);
 	XMFLOAT2 operator-(const XMFLOAT2& lhs, const XMFLOAT2& rhs);
 	XMFLOAT2 operator+(const XMFLOAT2& lhs, const XMFLOAT4& rhs);

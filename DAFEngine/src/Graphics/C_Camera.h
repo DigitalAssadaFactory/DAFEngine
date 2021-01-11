@@ -1,4 +1,5 @@
 #pragma once
+#include "../ECS.h"
 #include "U_Graphics.h"
 
 
@@ -13,9 +14,9 @@ namespace DAF
 		DirectX::XMMATRIX, viewMatrix,
 		DirectX::XMMATRIX, projectionMatrix,
 		DirectX::XMMATRIX, rotationMatrix,
-		Utility::Graphics::RTV, renderTargetView,
-		Utility::Graphics::DSV, depthStencilView,
-		Utility::Graphics::VP, viewport,
+		ECS::Utility::Graphics::RTV, renderTargetView,
+		ECS::Utility::Graphics::DSV, depthStencilView,
+		ECS::Utility::Graphics::VP, viewport,
 		Microsoft::WRL::ComPtr<ID3D11Buffer>, mvpConstantBuffer
 	)
 

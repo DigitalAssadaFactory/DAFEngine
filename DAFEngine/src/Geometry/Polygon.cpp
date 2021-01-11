@@ -15,8 +15,8 @@ namespace DAF::Geometry {
 		indices.push_back(1);
 		indices.push_back(2);
 
-		for (uint8_t i = 0; i < numberOfAngles; ++i) {
-			vec = XMVector3Transform(vec, XMMatrixRotationRollPitchYaw(0.0f, 0.0f, angle));
+		for (int i = 0; i < numberOfAngles; ++i) {
+			vec = XMVector3Transform(vec, XMMatrixRotationRollPitchYaw(0.0f, 0.0f, -angle));
 			vertices.push_back(vec);
 			if (i > 2)
 			{
@@ -26,8 +26,7 @@ namespace DAF::Geometry {
 			}
 		};
 
-		for (auto& v : vertices)
-			v.normal = { 0.0f, 0.0f, -1.0f, 0.0f };
+		CalculateNormals();
 	}
 
 }

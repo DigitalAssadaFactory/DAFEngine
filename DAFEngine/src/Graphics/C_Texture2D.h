@@ -1,6 +1,6 @@
 #pragma once
-#include "ECSCore.h"
-#include "U_Basic.h"
+#include "../ECS.h"
+#include "../Utility.h"
 
 
 

@@ -192,26 +192,26 @@ namespace DAF
 
 			//------
 			//          std::future<MyResult> wynik;
-			//          
+			//
 			//          m_pContext->CSSetShader(m_CS_array[0].Get(), 0, 0);
 			//          m_pContext->Dispatch(65000, 4, 1);
-			//          
+			//
 			//          m_pContext->CSSetShader(m_CS_array[1].Get(), 0, 0);
 			//          m_pContext->Dispatch(65000, 4, 1);
-			//          
+			//
 			//          m_pContext->CSSetShader(m_CS_array[2].Get(), 0, 0);
 			//          m_pContext->Dispatch(65000, 4, 1);
-			//          
+			//
 			//          m_pContext->CopyResource(stagProfitBuffer.Get(), outBuffer.Get());
 			//          m_pContext->Map(stagProfitBuffer.Get(), 0, D3D11_MAP_READ, 0, &mapped);
 			//          MyOutput* o = (MyOutput*)(mapped.pData);
-			//          
+			//
 			//          wynik = std::async(std::launch::async, Stock::DoHomework, std::vector<MyOutput>(o, o + _Total));
-			//          
+			//
 			//          m_pContext->Unmap(stagProfitBuffer.Get(), 0);
-			//          
+			//
 			//          std::string swynik = std::to_string(wynik.get().totalProfit);
-			//          
+			//
 			//          Logger::ThrowBox(swynik);
 			//------------
 
@@ -413,18 +413,16 @@ namespace DAF
 			auto _mesh = e.GetComponent<Mesh>(at);
 			auto _rend = e.GetComponent<Renderer>(at);
 			auto _tra = e.GetComponent<Transform>();
-			
+
 			if (_mesh.id == 0) Logger::ThrowBox("AddModel:\nEntity doesn't have Mesh Component.");
 			if (_rend.id == 0) Logger::ThrowBox("AddModel:\nEntity doesn't have Renderer Component.");
 			if (_tra.id == 0) Logger::ThrowBox("AddModel:\nEntity doesn't have Transform Component.");
 
-			size_t _offset = _mesh.vertices.size();
-			for (auto i : indices)
-				_mesh.indices.push_back(i + _offset);
-
-			for (auto& v : vertices)
-				_mesh.vertices.push_back(v);
-
+			std::vector<std::vector<Vertex>> vList = { _mesh.vertices, vertices };
+			std::vector<std::vector<unsigned int>> iList = { _mesh.indices, indices };
+			auto fusion = MeshFusion(vList, iList);
+			_mesh.vertices = fusion.first;
+			_mesh.indices = fusion.second;
 
 			int _vs = 0;
 			for (auto& name : Component::VertexShader::name)
@@ -552,6 +550,12 @@ namespace DAF
 			CreateConstantBuffer(SingleMatrixBuffer(mvp), _cam.mvpConstantBuffer);
 
 			m_activeCameras.push_back(_cam.id);
+		}
+
+		void Graphics::AddLight(const Entity& e)
+		{
+			auto light = e.GetComponent<Light>();
+
 		}
 
 
@@ -820,10 +824,10 @@ namespace DAF
 		}
 
 		void Graphics::InitStates() {
-			CreateRasterizerState(1, Fill::Solid, Cull::None);                        // Utility::RS::CW
-			CreateRasterizerState(0, Fill::Solid, Cull::Back);                        // Utility::RS::CCW
-			CreateDepthStencilState(1, DepthWriteMask::All, Comparison::LessEqual);   // Utility::DSS::Default
-			CreateBlendState(1, Blend::SrcAlpha, Blend::InvSrcAlpha, BlendOp::Add);   // Utility::BS::Default
+			CreateRasterizerState(1, Fill::Solid, Cull::Back);   // leave like this to maintain RS enum order
+			CreateRasterizerState(0, Fill::Solid, Cull::Back);   // leave like this to maintain RS enum order
+			CreateDepthStencilState(1, DepthWriteMask::All, Comparison::LessEqual);
+			CreateBlendState(1, Blend::SrcAlpha, Blend::InvSrcAlpha, BlendOp::Add);
 
 			SetRasterizerState(RS::CW);
 			SetBlendState(BS::Default);

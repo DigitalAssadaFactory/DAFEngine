@@ -1,5 +1,6 @@
 #pragma once
-#include "U_Basic.h"
+#include "../ECS.h"
+#include "../Utility.h"
 
 
 

@@ -1,10 +1,12 @@
 #pragma once
 #include <random>
+#include <future>
 #include "ECS.h"
 #include "Window.h"
 #include "JobSystem.h"
-#include <future>
 #include "Geometry.h"
+#include "Graphics.h"
+
 
 
 
@@ -26,9 +28,6 @@ namespace DAF
 
 	private:
 		void CameraCode(float moveSpeed, float rotSpeed);
-		//void StockConfig(const std::string& currencyPair, float minProfit);
-
-		//void Trash();
 
 		std::vector<ECS::Entity> e;
 		LRESULT     WindowProcEx(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam) override;

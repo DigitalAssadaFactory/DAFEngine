@@ -4,6 +4,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 16.0.30804.86
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "DAFEngine", "DAFEngine\DAFEngine.vcxproj", "{B3D0B463-C65C-4C73-81EC-8E7DB4C7A24F}"
+	ProjectSection(ProjectDependencies) = postProject
+		{B04F2040-1415-441C-8F4F-CAC08BAED236} = {B04F2040-1415-441C-8F4F-CAC08BAED236}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "PNet", "PNet\PNet.vcxproj", "{B04F2040-1415-441C-8F4F-CAC08BAED236}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +26,14 @@ Global
 		{B3D0B463-C65C-4C73-81EC-8E7DB4C7A24F}.Release|x64.Build.0 = Release|x64
 		{B3D0B463-C65C-4C73-81EC-8E7DB4C7A24F}.Release|x86.ActiveCfg = Release|Win32
 		{B3D0B463-C65C-4C73-81EC-8E7DB4C7A24F}.Release|x86.Build.0 = Release|Win32
+		{B04F2040-1415-441C-8F4F-CAC08BAED236}.Debug|x64.ActiveCfg = Debug|x64
+		{B04F2040-1415-441C-8F4F-CAC08BAED236}.Debug|x64.Build.0 = Debug|x64
+		{B04F2040-1415-441C-8F4F-CAC08BAED236}.Debug|x86.ActiveCfg = Debug|Win32
+		{B04F2040-1415-441C-8F4F-CAC08BAED236}.Debug|x86.Build.0 = Debug|Win32
+		{B04F2040-1415-441C-8F4F-CAC08BAED236}.Release|x64.ActiveCfg = Release|x64
+		{B04F2040-1415-441C-8F4F-CAC08BAED236}.Release|x64.Build.0 = Release|x64
+		{B04F2040-1415-441C-8F4F-CAC08BAED236}.Release|x86.ActiveCfg = Release|Win32
+		{B04F2040-1415-441C-8F4F-CAC08BAED236}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

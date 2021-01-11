@@ -21,28 +21,29 @@
   <ItemGroup>
     <ClInclude Include="src\ECS.h" />
     <ClInclude Include="src\ECS\backup.h" />
-    <ClInclude Include="src\ECS\C_Camera.h" />
-    <ClInclude Include="src\ECS\C_Mesh.h" />
-    <ClInclude Include="src\ECS\C_Renderer.h" />
-    <ClInclude Include="src\ECS\C_RigidBody.h" />
-    <ClInclude Include="src\ECS\C_Shader.h" />
-    <ClInclude Include="src\ECS\C_Texture2D.h" />
-    <ClInclude Include="src\ECS\C_Transform.h" />
     <ClInclude Include="src\ECS\ECSComponent_TEMPLATE_MACRO.h" />
     <ClInclude Include="src\ECS\ECSCore.h" />
     <ClInclude Include="src\ECS\ECS_MACRO.h" />
-    <ClInclude Include="src\ECS\S_Graphics.h" />
-    <ClInclude Include="src\ECS\S_Physics.h" />
-    <ClInclude Include="src\ECS\U_Basic.h" />
-    <ClInclude Include="src\ECS\U_Graphics.h" />
     <ClInclude Include="src\Engine.h" />
     <ClInclude Include="src\Geometry.h" />
+    <ClInclude Include="src\Geometry\BaseMesh.h" />
     <ClInclude Include="src\Geometry\Cube.h" />
     <ClInclude Include="src\Geometry\Hexagon.h" />
     <ClInclude Include="src\Geometry\Polygon.h" />
+    <ClInclude Include="src\Geometry\Prism.h" />
     <ClInclude Include="src\Geometry\Quad.h" />
     <ClInclude Include="src\Geometry\SingleMatrixBuffer.h" />
     <ClInclude Include="src\Geometry\Vertex.h" />
+    <ClInclude Include="src\Graphics.h" />
+    <ClInclude Include="src\Graphics\C_Camera.h" />
+    <ClInclude Include="src\Graphics\C_Mesh.h" />
+    <ClInclude Include="src\Graphics\C_Renderer.h" />
+    <ClInclude Include="src\Graphics\C_Shader.h" />
+    <ClInclude Include="src\Graphics\C_Texture2D.h" />
+    <ClInclude Include="src\Graphics\C_Transform.h" />
+    <ClInclude Include="src\Graphics\C_Light.h" />
+    <ClInclude Include="src\Graphics\S_Graphics.h" />
+    <ClInclude Include="src\Graphics\U_Graphics.h" />
     <ClInclude Include="src\HID.h" />
     <ClInclude Include="src\HID\Keyboard.h" />
     <ClInclude Include="src\HID\Mouse.h" />
@@ -54,34 +55,42 @@
     <ClInclude Include="src\ImGUI\imstb_rectpack.h" />
     <ClInclude Include="src\ImGUI\imstb_textedit.h" />
     <ClInclude Include="src\ImGUI\imstb_truetype.h" />
+    <ClInclude Include="src\Network.h" />
+    <ClInclude Include="src\Network\Client.h" />
+    <ClInclude Include="src\Network\Server.h" />
+    <ClInclude Include="src\Physics.h" />
+    <ClInclude Include="src\Physics\C_RigidBody.h" />
+    <ClInclude Include="src\Physics\S_Physics.h" />
     <ClInclude Include="src\Utility.h" />
     <ClInclude Include="src\Utility\Caster.h" />
+    <ClInclude Include="src\Utility\DXUtility.h" />
     <ClInclude Include="src\Utility\DYNAMIC_ARRAY_MACRO.h" />
     <ClInclude Include="src\Utility\Loader.h" />
     <ClInclude Include="src\Utility\Logger.h" />
+    <ClInclude Include="src\Utility\Math.h" />
     <ClInclude Include="src\Utility\Time.h" />
     <ClInclude Include="src\Window.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\ECS\C_Camera.cpp" />
-    <ClCompile Include="src\ECS\C_Mesh.cpp" />
-    <ClCompile Include="src\ECS\C_Renderer.cpp" />
-    <ClCompile Include="src\ECS\C_RigidBody.cpp" />
-    <ClCompile Include="src\ECS\C_Shader.cpp" />
-    <ClCompile Include="src\ECS\C_Texture2D.cpp" />
-    <ClCompile Include="src\ECS\C_Transform.cpp" />
     <ClCompile Include="src\ECS\ECSCore.cpp" />
-    <ClCompile Include="src\ECS\S_Graphics.cpp" />
-    <ClCompile Include="src\ECS\S_Physics.cpp" />
-    <ClCompile Include="src\ECS\U_Basic.cpp" />
-    <ClCompile Include="src\ECS\U_Graphics.cpp" />
     <ClCompile Include="src\Engine.cpp" />
     <ClCompile Include="src\EntryPoint.cpp" />
+    <ClCompile Include="src\Geometry\BaseMesh.cpp" />
     <ClCompile Include="src\Geometry\Cube.cpp" />
     <ClCompile Include="src\Geometry\Hexagon.cpp" />
     <ClCompile Include="src\Geometry\Polygon.cpp" />
+    <ClCompile Include="src\Geometry\Prism.cpp" />
     <ClCompile Include="src\Geometry\Quad.cpp" />
     <ClCompile Include="src\Geometry\Vertex.cpp" />
+    <ClCompile Include="src\Graphics\C_Camera.cpp" />
+    <ClCompile Include="src\Graphics\C_Mesh.cpp" />
+    <ClCompile Include="src\Graphics\C_Renderer.cpp" />
+    <ClCompile Include="src\Graphics\C_Shader.cpp" />
+    <ClCompile Include="src\Graphics\C_Texture2D.cpp" />
+    <ClCompile Include="src\Graphics\C_Transform.cpp" />
+    <ClCompile Include="src\Graphics\C_Light.cpp" />
+    <ClCompile Include="src\Graphics\S_Graphics.cpp" />
+    <ClCompile Include="src\Graphics\U_Graphics.cpp" />
     <ClCompile Include="src\HID\Keyboard.cpp" />
     <ClCompile Include="src\HID\Mouse.cpp" />
     <ClCompile Include="src\ImGUI\imgui.cpp" />
@@ -90,9 +99,15 @@
     <ClCompile Include="src\ImGUI\imgui_impl_dx11.cpp" />
     <ClCompile Include="src\ImGUI\imgui_impl_win32.cpp" />
     <ClCompile Include="src\ImGUI\imgui_widgets.cpp" />
+    <ClCompile Include="src\Network\Client.cpp" />
+    <ClCompile Include="src\Network\Server.cpp" />
+    <ClCompile Include="src\Physics\C_RigidBody.cpp" />
+    <ClCompile Include="src\Physics\S_Physics.cpp" />
     <ClCompile Include="src\Utility\Caster.cpp" />
+    <ClCompile Include="src\Utility\DXUtility.cpp" />
     <ClCompile Include="src\Utility\Loader.cpp" />
     <ClCompile Include="src\Utility\Logger.cpp" />
+    <ClCompile Include="src\Utility\Math.cpp" />
     <ClCompile Include="src\Utility\Time.cpp" />
     <ClCompile Include="src\Window.cpp" />
   </ItemGroup>
@@ -184,28 +199,28 @@
     <LinkIncremental>true</LinkIncremental>
     <OutDir>$(SolutionDir)bin/$(Configuration)_$(Platform)/</OutDir>
     <IntDir>$(SolutionDir)bin/intermediate/$(Configuration)_$(Platform)/</IntDir>
-    <IncludePath>$(ProjectDir)inc;$(VC_IncludePath);$(WindowsSDK_IncludePath);</IncludePath>
+    <IncludePath>$(SolutionDir)PNet;$(ProjectDir)inc;$(VC_IncludePath);$(WindowsSDK_IncludePath)</IncludePath>
     <LibraryPath>$(ProjectDir)lib/$(Platform)/Bullet_$(Configuration)_$(Platform);$(ProjectDir)lib/$(Platform);$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
     <OutDir>$(SolutionDir)bin/$(Configuration)_$(Platform)/</OutDir>
     <IntDir>$(SolutionDir)bin/intermediate/$(Configuration)_$(Platform)/</IntDir>
-    <IncludePath>$(ProjectDir)inc;$(VC_IncludePath);$(WindowsSDK_IncludePath);</IncludePath>
+    <IncludePath>$(SolutionDir)PNet;$(ProjectDir)inc;$(VC_IncludePath);$(WindowsSDK_IncludePath)</IncludePath>
     <LibraryPath>$(ProjectDir)lib/$(Platform)/Bullet_$(Configuration)_$(Platform);$(ProjectDir)lib/$(Platform);$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
     <OutDir>$(SolutionDir)bin/$(Configuration)_$(Platform)/</OutDir>
     <IntDir>$(SolutionDir)bin/intermediate/$(Configuration)_$(Platform)/</IntDir>
-    <IncludePath>$(ProjectDir)inc;$(VC_IncludePath);$(WindowsSDK_IncludePath);</IncludePath>
+    <IncludePath>$(SolutionDir)PNet;$(ProjectDir)inc;$(VC_IncludePath);$(WindowsSDK_IncludePath)</IncludePath>
     <LibraryPath>$(ProjectDir)lib/$(Platform)/Bullet_$(Configuration)_$(Platform);$(ProjectDir)lib/$(Platform);$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
     <OutDir>$(SolutionDir)bin/$(Configuration)_$(Platform)/</OutDir>
     <IntDir>$(SolutionDir)bin/intermediate/$(Configuration)_$(Platform)/</IntDir>
-    <IncludePath>$(ProjectDir)inc;$(VC_IncludePath);$(WindowsSDK_IncludePath);</IncludePath>
+    <IncludePath>$(SolutionDir)PNet;$(ProjectDir)inc;$(VC_IncludePath);$(WindowsSDK_IncludePath)</IncludePath>
     <LibraryPath>$(ProjectDir)lib/$(Platform)/Bullet_$(Configuration)_$(Platform);$(ProjectDir)lib/$(Platform);$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">

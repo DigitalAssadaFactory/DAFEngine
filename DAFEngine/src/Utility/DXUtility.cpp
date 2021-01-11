@@ -1,9 +1,16 @@
-#include "U_Basic.h"
+#include "DXUtility.h"
 
 
 
 namespace DirectX {
-
+	bool operator==(const XMFLOAT4& lhs, const XMFLOAT4& rhs)
+	{
+		return lhs.x == rhs.x && lhs.y == rhs.y && lhs.z == rhs.z && lhs.w == rhs.w;
+	}
+	bool operator!=(const XMFLOAT4& lhs, const XMFLOAT4& rhs)
+	{
+		return lhs.x != rhs.x || lhs.y != rhs.y || lhs.z != rhs.z || lhs.w != rhs.w;
+	}
 	bool operator==(const XMFLOAT3& lhs, const XMFLOAT3& rhs) {
 		return lhs.x == rhs.x && lhs.y == rhs.y && lhs.z == rhs.z;
 	}

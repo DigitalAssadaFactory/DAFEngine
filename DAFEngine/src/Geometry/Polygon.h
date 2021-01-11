@@ -1,18 +1,14 @@
 #pragma once
-#include "Vertex.h"
-#include <vector>
+#include "BaseMesh.h"
 #include "../Utility.h"
 
 
 
 namespace DAF::Geometry {
 
-	struct Polygon {
+	struct Polygon : public BaseMesh
+	{
 		Polygon(unsigned int numberOfAngles);
-
-					
-		std::vector<Vertex> vertices;
-		std::vector<unsigned int> indices;
 	};
 
 }
