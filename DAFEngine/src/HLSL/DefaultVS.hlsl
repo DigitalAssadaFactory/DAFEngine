@@ -42,7 +42,7 @@ Output main(Input i, uint id : SV_InstanceID)
     o.position = mul(mvp, o.position);
     o.color = i.color;
     o.uv = i.uv;
-	o.normal = normalize(i.normal);
-		
+	o.normal = mul( transform[id], normalize(i.normal) );
+
     return o;
 }

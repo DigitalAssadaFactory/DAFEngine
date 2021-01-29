@@ -19,22 +19,31 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\ECS.h" />
+    <ClInclude Include="inc\DAF\DAF_ECS.h" />
+    <ClInclude Include="inc\DAF\DAF_Geometry.h" />
+    <ClInclude Include="inc\DAF\DAF_Graphics.h" />
+    <ClInclude Include="inc\DAF\DAF_HID.h" />
+    <ClInclude Include="inc\DAF\DAF_Network.h" />
+    <ClInclude Include="inc\DAF\DAF_Utility.h" />
     <ClInclude Include="src\ECS\backup.h" />
     <ClInclude Include="src\ECS\ECSComponent_TEMPLATE_MACRO.h" />
     <ClInclude Include="src\ECS\ECSCore.h" />
     <ClInclude Include="src\ECS\ECS_MACRO.h" />
     <ClInclude Include="src\Engine.h" />
-    <ClInclude Include="src\Geometry.h" />
+    <ClInclude Include="src\Game\CageWall.h" />
+    <ClInclude Include="src\Game\ConstructionType.h" />
+    <ClInclude Include="src\Game\Classes.h" />
     <ClInclude Include="src\Geometry\BaseMesh.h" />
     <ClInclude Include="src\Geometry\Cube.h" />
     <ClInclude Include="src\Geometry\Hexagon.h" />
+    <ClInclude Include="src\Geometry\House.h" />
+    <ClInclude Include="src\Geometry\MetaPosition.h" />
     <ClInclude Include="src\Geometry\Polygon.h" />
     <ClInclude Include="src\Geometry\Prism.h" />
     <ClInclude Include="src\Geometry\Quad.h" />
     <ClInclude Include="src\Geometry\SingleMatrixBuffer.h" />
+    <ClInclude Include="src\Geometry\UniversalNode.h" />
     <ClInclude Include="src\Geometry\Vertex.h" />
-    <ClInclude Include="src\Graphics.h" />
     <ClInclude Include="src\Graphics\C_Camera.h" />
     <ClInclude Include="src\Graphics\C_Mesh.h" />
     <ClInclude Include="src\Graphics\C_Renderer.h" />
@@ -44,7 +53,6 @@
     <ClInclude Include="src\Graphics\C_Light.h" />
     <ClInclude Include="src\Graphics\S_Graphics.h" />
     <ClInclude Include="src\Graphics\U_Graphics.h" />
-    <ClInclude Include="src\HID.h" />
     <ClInclude Include="src\HID\Keyboard.h" />
     <ClInclude Include="src\HID\Mouse.h" />
     <ClInclude Include="src\ImGUI\imconfig.h" />
@@ -55,14 +63,11 @@
     <ClInclude Include="src\ImGUI\imstb_rectpack.h" />
     <ClInclude Include="src\ImGUI\imstb_textedit.h" />
     <ClInclude Include="src\ImGUI\imstb_truetype.h" />
-    <ClInclude Include="src\Network.h" />
     <ClInclude Include="src\Network\Client.h" />
     <ClInclude Include="src\Network\Server.h" />
-    <ClInclude Include="src\Physics.h" />
     <ClInclude Include="src\Physics\C_RigidBody.h" />
     <ClInclude Include="src\Physics\S_Physics.h" />
-    <ClInclude Include="src\Utility.h" />
-    <ClInclude Include="src\Utility\Caster.h" />
+    <ClInclude Include="src\Utility\Converter.h" />
     <ClInclude Include="src\Utility\DXUtility.h" />
     <ClInclude Include="src\Utility\DYNAMIC_ARRAY_MACRO.h" />
     <ClInclude Include="src\Utility\Loader.h" />
@@ -75,12 +80,15 @@
     <ClCompile Include="src\ECS\ECSCore.cpp" />
     <ClCompile Include="src\Engine.cpp" />
     <ClCompile Include="src\EntryPoint.cpp" />
+    <ClCompile Include="src\Game\CageWall.cpp" />
     <ClCompile Include="src\Geometry\BaseMesh.cpp" />
     <ClCompile Include="src\Geometry\Cube.cpp" />
     <ClCompile Include="src\Geometry\Hexagon.cpp" />
+    <ClCompile Include="src\Geometry\House.cpp" />
     <ClCompile Include="src\Geometry\Polygon.cpp" />
     <ClCompile Include="src\Geometry\Prism.cpp" />
     <ClCompile Include="src\Geometry\Quad.cpp" />
+    <ClCompile Include="src\Geometry\UniversalNode.cpp" />
     <ClCompile Include="src\Geometry\Vertex.cpp" />
     <ClCompile Include="src\Graphics\C_Camera.cpp" />
     <ClCompile Include="src\Graphics\C_Mesh.cpp" />
@@ -103,7 +111,7 @@
     <ClCompile Include="src\Network\Server.cpp" />
     <ClCompile Include="src\Physics\C_RigidBody.cpp" />
     <ClCompile Include="src\Physics\S_Physics.cpp" />
-    <ClCompile Include="src\Utility\Caster.cpp" />
+    <ClCompile Include="src\Utility\Converter.cpp" />
     <ClCompile Include="src\Utility\DXUtility.cpp" />
     <ClCompile Include="src\Utility\Loader.cpp" />
     <ClCompile Include="src\Utility\Logger.cpp" />
@@ -199,28 +207,28 @@
     <LinkIncremental>true</LinkIncremental>
     <OutDir>$(SolutionDir)bin/$(Configuration)_$(Platform)/</OutDir>
     <IntDir>$(SolutionDir)bin/intermediate/$(Configuration)_$(Platform)/</IntDir>
-    <IncludePath>$(SolutionDir)PNet;$(ProjectDir)inc;$(VC_IncludePath);$(WindowsSDK_IncludePath)</IncludePath>
+    <IncludePath>$(ProjectDir)inc/DAF;$(SolutionDir)PNet;$(ProjectDir)inc;$(VC_IncludePath);$(WindowsSDK_IncludePath)</IncludePath>
     <LibraryPath>$(ProjectDir)lib/$(Platform)/Bullet_$(Configuration)_$(Platform);$(ProjectDir)lib/$(Platform);$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
     <OutDir>$(SolutionDir)bin/$(Configuration)_$(Platform)/</OutDir>
     <IntDir>$(SolutionDir)bin/intermediate/$(Configuration)_$(Platform)/</IntDir>
-    <IncludePath>$(SolutionDir)PNet;$(ProjectDir)inc;$(VC_IncludePath);$(WindowsSDK_IncludePath)</IncludePath>
+    <IncludePath>$(ProjectDir)inc/DAF;$(SolutionDir)PNet;$(ProjectDir)inc;$(VC_IncludePath);$(WindowsSDK_IncludePath)</IncludePath>
     <LibraryPath>$(ProjectDir)lib/$(Platform)/Bullet_$(Configuration)_$(Platform);$(ProjectDir)lib/$(Platform);$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
     <OutDir>$(SolutionDir)bin/$(Configuration)_$(Platform)/</OutDir>
     <IntDir>$(SolutionDir)bin/intermediate/$(Configuration)_$(Platform)/</IntDir>
-    <IncludePath>$(SolutionDir)PNet;$(ProjectDir)inc;$(VC_IncludePath);$(WindowsSDK_IncludePath)</IncludePath>
+    <IncludePath>$(ProjectDir)inc/DAF;$(SolutionDir)PNet;$(ProjectDir)inc;$(VC_IncludePath);$(WindowsSDK_IncludePath)</IncludePath>
     <LibraryPath>$(ProjectDir)lib/$(Platform)/Bullet_$(Configuration)_$(Platform);$(ProjectDir)lib/$(Platform);$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
     <OutDir>$(SolutionDir)bin/$(Configuration)_$(Platform)/</OutDir>
     <IntDir>$(SolutionDir)bin/intermediate/$(Configuration)_$(Platform)/</IntDir>
-    <IncludePath>$(SolutionDir)PNet;$(ProjectDir)inc;$(VC_IncludePath);$(WindowsSDK_IncludePath)</IncludePath>
+    <IncludePath>$(ProjectDir)inc/DAF;$(SolutionDir)PNet;$(ProjectDir)inc;$(VC_IncludePath);$(WindowsSDK_IncludePath)</IncludePath>
     <LibraryPath>$(ProjectDir)lib/$(Platform)/Bullet_$(Configuration)_$(Platform);$(ProjectDir)lib/$(Platform);$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">

@@ -6,7 +6,7 @@ namespace DAF
 
 	void Logger::ThrowBox(const std::string& message)
 	{
-		MessageBoxW(NULL, Caster::Wstr(message).c_str(), L"Error", MB_ICONERROR);
+		MessageBoxW(NULL, To::WString(message).c_str(), L"Error", MB_ICONERROR);
 		exit(0);
 	}
 
@@ -22,7 +22,7 @@ namespace DAF
 		{
 			_com_error e(hr);
 			std::wstring msg(L"Error : " + std::wstring(e.ErrorMessage()) + L"\n"
-				+ L"Note : " + Caster::Wstr(message));
+				+ L"Note : " + To::WString(message));
 
 			MessageBoxW(NULL, msg.c_str(), L"Error", MB_ICONERROR);
 			exit(0);
@@ -35,10 +35,10 @@ namespace DAF
 		{
 			_com_error e(hr);
 			std::wstring msg(L"Error : " + std::wstring(e.ErrorMessage()) + L"\n"
-				+ L"Function : " + Caster::Wstr(function) + L"\n"
-				+ L"File : " + Caster::Wstr(file) + L"\n"
-				+ L"Line : " + Caster::Wstr(line) + L"\n"
-				+ L"Note : " + Caster::Wstr(message));
+				+ L"Function : " + To::WString(function) + L"\n"
+				+ L"File : " + To::WString(file) + L"\n"
+				+ L"Line : " + To::WString(line) + L"\n"
+				+ L"Note : " + To::WString(message));
 
 			MessageBoxW(NULL, msg.c_str(), L"Error", MB_ICONERROR);
 			exit(0);
@@ -51,9 +51,9 @@ namespace DAF
 		{
 			_com_error e(hr);
 			std::wstring msg(L"Error : " + std::wstring(e.ErrorMessage()) + L"\n"
-				+ L"Function : " + Caster::Wstr(function) + L"\n"
-				+ L"File : " + Caster::Wstr(file) + L"\n"
-				+ L"Line : " + Caster::Wstr(line) + L"\n"
+				+ L"Function : " + To::WString(function) + L"\n"
+				+ L"File : " + To::WString(file) + L"\n"
+				+ L"Line : " + To::WString(line) + L"\n"
 				+ L"Note : " + std::wstring(message));
 
 			MessageBoxW(NULL, msg.c_str(), L"Error", MB_ICONERROR);
@@ -67,9 +67,9 @@ namespace DAF
 		{
 			_com_error e(hr);
 			std::wstring msg(L"Error : " + std::wstring(e.ErrorMessage()) + L"\n"
-				+ L"Function : " + Caster::Wstr(function) + L"\n"
-				+ L"File : " + Caster::Wstr(file) + L"\n"
-				+ L"Line : " + Caster::Wstr(line) + L"\n"
+				+ L"Function : " + To::WString(function) + L"\n"
+				+ L"File : " + To::WString(file) + L"\n"
+				+ L"Line : " + To::WString(line) + L"\n"
 				+ L"Note : " + message);
 
 			MessageBoxW(NULL, msg.c_str(), L"Error", MB_ICONERROR);
@@ -85,25 +85,25 @@ namespace DAF
 
 	void Logger::Log(const float& f)
 	{
-		std::wstring ws(Caster::Wstr(f) + L"\n");
+		std::wstring ws(To::WString(f) + L"\n");
 		OutputDebugString(ws.c_str());
 	}
 
 	void Logger::Log(const DirectX::XMFLOAT3& f3)
 	{
-		std::wstring ws(Caster::Wstr(f3.x) + L" | " + Caster::Wstr(f3.y) + L" | " + Caster::Wstr(f3.z) + L"\n");
+		std::wstring ws(To::WString(f3.x) + L" | " + To::WString(f3.y) + L" | " + To::WString(f3.z) + L"\n");
 		OutputDebugString(ws.c_str());
 	}
 
 	void Logger::Log(const DirectX::XMFLOAT4& f4)
 	{
-		std::wstring ws(Caster::Wstr(f4.x) + L" | " + Caster::Wstr(f4.y) + L" | " + Caster::Wstr(f4.z) + L" | " + Caster::Wstr(f4.w) + L"\n");
+		std::wstring ws(To::WString(f4.x) + L" | " + To::WString(f4.y) + L" | " + To::WString(f4.z) + L" | " + To::WString(f4.w) + L"\n");
 		OutputDebugString(ws.c_str());
 	}
 
 	/*void Logger::Log(const btVector3 & v3)
 	{
-		std::wstring ws(Caster::Wstr(v3.getX()) + L" | " + Caster::Wstr(v3.getY()) + L" | " + Caster::Wstr(v3.getZ()) + L"\n");
+		std::wstring ws(To::WString(v3.getX()) + L" | " + To::WString(v3.getY()) + L" | " + To::WString(v3.getZ()) + L"\n");
 		OutputDebugString(ws.c_str());
 	}*/
 

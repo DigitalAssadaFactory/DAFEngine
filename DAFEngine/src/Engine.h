@@ -1,11 +1,11 @@
 #pragma once
 #include <random>
 #include <future>
-#include "ECS.h"
+#include <DAF_ECS.h>
+#include <DAF_Geometry.h>
+#include <DAF_Graphics.h>
 #include "Window.h"
 #include "JobSystem.h"
-#include "Geometry.h"
-#include "Graphics.h"
 
 
 

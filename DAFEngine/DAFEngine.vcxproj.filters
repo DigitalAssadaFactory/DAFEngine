@@ -85,6 +85,15 @@
     <Filter Include="Physics\cpp">
       <UniqueIdentifier>{f65988b8-1941-47a3-bfe9-24fb97cec8e6}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Game">
+      <UniqueIdentifier>{32d163f1-c3cc-4e22-98cc-673aee2f5814}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\cpp">
+      <UniqueIdentifier>{f95463d3-5a85-4c08-98bf-3ecf7c1b38a7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\h">
+      <UniqueIdentifier>{5e00be71-69b3-4344-8c5c-62c3433f8e3b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\ECS\backup.h">
@@ -147,9 +156,6 @@
     <ClInclude Include="src\ImGUI\imstb_truetype.h">
       <Filter>ImGUI\h</Filter>
     </ClInclude>
-    <ClInclude Include="src\Utility\Caster.h">
-      <Filter>Utility\h</Filter>
-    </ClInclude>
     <ClInclude Include="src\Utility\DYNAMIC_ARRAY_MACRO.h">
       <Filter>Utility\h</Filter>
     </ClInclude>
@@ -167,21 +173,6 @@
     </ClInclude>
     <ClInclude Include="src\Window.h">
       <Filter>Window\h</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Utility.h">
-      <Filter>Utility\h</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Geometry.h">
-      <Filter>Geometry\h</Filter>
-    </ClInclude>
-    <ClInclude Include="src\HID.h">
-      <Filter>HID\h</Filter>
-    </ClInclude>
-    <ClInclude Include="src\ECS.h">
-      <Filter>ECS\h</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Network.h">
-      <Filter>Network\h</Filter>
     </ClInclude>
     <ClInclude Include="src\Network\Server.h">
       <Filter>Network\h</Filter>
@@ -228,16 +219,49 @@
     <ClInclude Include="src\Physics\S_Physics.h">
       <Filter>Physics\h</Filter>
     </ClInclude>
-    <ClInclude Include="src\Physics.h">
-      <Filter>Physics\h</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Graphics.h">
-      <Filter>Graphics\h</Filter>
-    </ClInclude>
     <ClInclude Include="src\Graphics\C_Light.h">
       <Filter>Graphics\h</Filter>
     </ClInclude>
     <ClInclude Include="src\Geometry\BaseMesh.h">
+      <Filter>Geometry\h</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Geometry\House.h">
+      <Filter>Geometry\h</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Utility\Converter.h">
+      <Filter>Utility\h</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\DAF\DAF_ECS.h">
+      <Filter>ECS\h</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\DAF\DAF_Geometry.h">
+      <Filter>Geometry\h</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\DAF\DAF_Graphics.h">
+      <Filter>Graphics\h</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\DAF\DAF_HID.h">
+      <Filter>HID\h</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\DAF\DAF_Network.h">
+      <Filter>Network\h</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\DAF\DAF_Utility.h">
+      <Filter>Utility\h</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Game\ConstructionType.h">
+      <Filter>Game\h</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Geometry\MetaPosition.h">
+      <Filter>Geometry\h</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Game\CageWall.h">
+      <Filter>Game\h</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Game\Classes.h">
+      <Filter>Game\h</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Geometry\UniversalNode.h">
       <Filter>Geometry\h</Filter>
     </ClInclude>
   </ItemGroup>
@@ -283,9 +307,6 @@
     </ClCompile>
     <ClCompile Include="src\ImGUI\imgui_widgets.cpp">
       <Filter>ImGUI\cpp</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Utility\Caster.cpp">
-      <Filter>Utility\cpp</Filter>
     </ClCompile>
     <ClCompile Include="src\Utility\Loader.cpp">
       <Filter>Utility\cpp</Filter>
@@ -354,6 +375,18 @@
       <Filter>Graphics\cpp</Filter>
     </ClCompile>
     <ClCompile Include="src\Geometry\BaseMesh.cpp">
+      <Filter>Geometry\cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Geometry\House.cpp">
+      <Filter>Geometry\cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Utility\Converter.cpp">
+      <Filter>Utility\cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Game\CageWall.cpp">
+      <Filter>Game\cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Geometry\UniversalNode.cpp">
       <Filter>Geometry\cpp</Filter>
     </ClCompile>
   </ItemGroup>

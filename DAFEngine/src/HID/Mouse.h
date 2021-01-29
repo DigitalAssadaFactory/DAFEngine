@@ -24,7 +24,8 @@ public:
 	};
 
 	MouseEvent();
-	MouseEvent(const EventType & event, const int & posX, const int & posY);
+	MouseEvent(const EventType& event, const int& posX, const int& posY);
+
 	
 	bool IsValid() const;
 	EventType GetType() const;

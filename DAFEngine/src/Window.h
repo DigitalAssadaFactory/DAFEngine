@@ -1,8 +1,8 @@
 #pragma once
 #define NOMINMAX
 #include <Windows.h>
-#include "Utility.h"
-#include "HID.h"
+#include <DAF_Utility.h>
+#include <DAF_HID.h>
 #include <memory>
 
 

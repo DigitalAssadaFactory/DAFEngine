@@ -1,5 +1,5 @@
 #pragma once
-#include "../ECS.h"
+#include <DAF_ECS.h>
 #include "U_Graphics.h"
 
 

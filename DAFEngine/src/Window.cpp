@@ -199,8 +199,8 @@ namespace DAF
 	HWND Window::InitWindow(const std::string& title, const std::string& className,
 		const LONG& width, const LONG& height, const LONG& x, const LONG& y)
 	{
-		m_title = Caster::Wstr(title);
-		m_className = Caster::Wstr(className);
+		m_title = To::WString(title);
+		m_className = To::WString(className);
 		m_width = width;
 		m_height = height;
 		m_x = x;
@@ -256,11 +256,11 @@ namespace DAF
 
 
 	std::string Window::GetWindowTitle() const {
-		return Caster::Str(m_title);
+		return To::String(m_title);
 	}
 
 	std::string Window::GetWindowClassName() const {
-		return Caster::Str(m_className);
+		return To::String(m_className);
 	}
 
 	HWND Window::GetWindowHandle() const {

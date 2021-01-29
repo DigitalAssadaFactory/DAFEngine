@@ -1,6 +1,5 @@
 #pragma once
 #include "BaseMesh.h"
-#include "../Utility.h"
 
 
 
@@ -8,7 +7,8 @@ namespace DAF::Geometry {
 
 	struct Polygon : public BaseMesh
 	{
-		Polygon(unsigned int numberOfAngles);
+		Polygon(unsigned int numberOfAngles, float radius = 1.0f);
+		Polygon(const std::vector<Vertex>& vertices, const std::vector<unsigned int>& indices);
 	};
 
 }

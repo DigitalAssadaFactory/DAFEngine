@@ -1,4 +1,4 @@
-#include "Caster.h"
+#include "Converter.h"
 
 
 
@@ -7,12 +7,32 @@ namespace DAF
 
 	//-------------------- STD::STRING --------------------\\
 
-	std::string Caster::Str(const std::wstring& var) {
+	std::string To::String(int var)
+	{
+		return std::to_string(var);
+	}
+
+	std::string To::String(unsigned int var)
+	{
+		return std::to_string(var);
+	}
+
+	std::string To::String(float var)
+	{
+		return std::to_string(var);
+	}
+
+	std::string To::String(double var)
+	{
+		return std::to_string(var);
+	}
+
+	std::string To::String(const std::wstring& var) {
 		std::string s(var.begin(), var.end());
 		return s;
 	}
 
-	std::string Caster::Str(const aiTextureType type)
+	std::string To::String(const aiTextureType type)
 	{
 		switch (type)
 		{
@@ -43,33 +63,64 @@ namespace DAF
 
 	//-------------------- STD::WSTRING --------------------\\
 
-	std::wstring Caster::Wstr(const char* var) {
+	std::wstring To::WString(const char* var) {
 		std::string s(var);
 		return std::wstring(s.begin(), s.end());
 	}
-	std::wstring Caster::Wstr(const short& var) {
+	std::wstring To::WString(const short& var) {
 		return std::to_wstring(var);
 	}
-	std::wstring Caster::Wstr(const int& var) {
+	std::wstring To::WString(const int& var) {
 		return std::to_wstring(var);
 	}
-	std::wstring Caster::Wstr(const unsigned int& var) {
+	std::wstring To::WString(const unsigned int& var) {
 		return std::to_wstring(var);
 	}
-	std::wstring Caster::Wstr(const long& var) {
+	std::wstring To::WString(const long& var) {
 		return std::to_wstring(var);
 	}
-	std::wstring Caster::Wstr(const float& var) {
+	std::wstring To::WString(const float& var) {
 		return std::to_wstring(var);
 	}
-	std::wstring Caster::Wstr(const double& var) {
+	std::wstring To::WString(const double& var) {
 		return std::to_wstring(var);
 	}
-	/*std::wstring Caster::Wstr(const TCHAR * var) {
+	/*std::wstring To::WString(const TCHAR * var) {
 		return std::wstring(var);
 	}*/
-	std::wstring Caster::Wstr(const std::string& var) {
+	std::wstring To::WString(const std::string& var) {
 		return std::wstring(var.begin(), var.end());
 	}
+
+	//-------------------- Coma Separated Values --------------------\\
+
+	std::string To::CSV(const DirectX::XMFLOAT2& value, const std::string& separator)
+	{
+		return std::to_string(value.x)
+			+ separator
+			+ std::to_string(value.y);
+	}
+
+	std::string To::CSV(const DirectX::XMFLOAT3& value, const std::string& separator)
+	{
+		return std::to_string(value.x)
+			+ separator
+			+ std::to_string(value.y)
+			+ separator
+			+ std::to_string(value.z);
+	}
+
+	std::string To::CSV(const DirectX::XMFLOAT4& value, const std::string& separator)
+	{
+		return std::to_string(value.x)
+			+ separator
+			+ std::to_string(value.y)
+			+ separator
+			+ std::to_string(value.z)
+			+ separator
+			+ std::to_string(value.w);
+	}
+
+
 
 }

@@ -1,8 +1,8 @@
 #pragma once
 #include "../Engine.h"
-#include "../ECS.h"
+#include <DAF_ECS.h>
 #include "U_Graphics.h"
-#include "../Utility.h"
+#include <DAF_Utility.h>
 #include "C_Mesh.h"
 #include "C_Renderer.h"
 #include "C_Texture2D.h"
@@ -11,7 +11,7 @@
 #include "C_Transform.h"
 #include "C_Light.h"
 #include "../Utility/DYNAMIC_ARRAY_MACRO.h"
-#include "../Geometry.h"
+#include <DAF_Geometry.h>
 #include <assimp/Importer.hpp>
 #include <assimp/postprocess.h>
 #include <assimp/scene.h>
@@ -29,6 +29,11 @@ namespace DAF::ECS::System
 		static void Init(const HWND& windowHandle);
 		static void Update();
 		static void Exit();
+		static void Fullscreen();
+		static void Resize(size_t newWidth = 0, size_t newHeight = 0,
+			DXGI_FORMAT newFormat = DXGI_FORMAT_R8G8B8A8_UNORM,
+			UINT newFlags = DXGI_SWAP_CHAIN_FLAG_ALLOW_MODE_SWITCH,
+			UINT newBufferCount = 0);
 
 		/*static void Dispatch(
 			const std::string& currencyPair,
@@ -55,7 +60,7 @@ namespace DAF::ECS::System
 			const int& width = 0, const int& height = 0, const DXGI_FORMAT& format = DXGI_FORMAT_UNKNOWN, aiTextureType type = aiTextureType_UNKNOWN,
 			const std::string& storageType = "Disc");
 		template<typename T>
-		static void AddTexture(const std::string& name, const void* data, const int& width = 0, const int& height = 0, const DXGI_FORMAT& format = DXGI_FORMAT_UNKNOWN);
+		static void AddTexture(const std::string& name, const std::vector<T>& data, const int& width = 0, const int& height = 0, const DXGI_FORMAT& format = DXGI_FORMAT_UNKNOWN);
 		static void AddCamera(const Entity& e);
 		static void AddLight(const Entity& e);
 
@@ -194,7 +199,7 @@ namespace DAF::ECS::System
 		static size_t    m_width;
 		static size_t    m_height;
 		static bool      m_vSync;
-
+		
 		// main infrastructure
 		static Microsoft::WRL::ComPtr<IDXGIFactory>          m_pFactory;
 		static Microsoft::WRL::ComPtr<IDXGIAdapter>          m_pAdapter;
@@ -231,7 +236,18 @@ namespace DAF::ECS::System
 
 		static std::map<int, std::vector<DrawData>> m_DrawCache;
 
-		static std::vector<size_t>           m_activeCameras;
+		struct LightBuffer {
+			DirectX::XMFLOAT3 position;
+			DirectX::XMFLOAT3 direction;
+			DirectX::XMFLOAT3 color;
+			float intensity;
+			int type;
+		};
+
+		static std::vector<size_t>                                m_activeCameras;
+		static std::vector<LightBuffer>                           m_activeLights;
+		static Microsoft::WRL::ComPtr<ID3D11Buffer>               m_lightResource;
+		static Microsoft::WRL::ComPtr<ID3D11ShaderResourceView>   m_lightResourceView;
 
 		static Entity* core;
 		static std::string UniqueName(const std::string& name);
@@ -402,7 +418,7 @@ namespace DAF::ECS::System
 	}
 
 	template<typename T>
-	void Graphics::AddTexture(const std::string& name, const void* data, const int& width, const int& height, const DXGI_FORMAT& format)
+	void Graphics::AddTexture(const std::string& name, const std::vector<T>& data, const int& width, const int& height, const DXGI_FORMAT& format)
 	{
 		core->AddComponent<ECS::Component::Texture2D>();
 		auto _tex = core->GetComponent<ECS::Component::Texture2D>(-1);
@@ -413,7 +429,7 @@ namespace DAF::ECS::System
 		_tex.type = "";
 		_tex.storageType = "Runtime";
 
-		CreateTexture<T>(data, width, height, _tex.DX11Texture, format);
+		CreateTexture<T>(data.data(), width, height, _tex.DX11Texture, format);
 		CreateSRV(_tex.DX11Texture, _tex.DX11View);
 	}
 

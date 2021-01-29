@@ -1,7 +1,7 @@
 #pragma once
 #include <string>
 #include <vector>
-#include "../ECS.h"
+#include <DAF_ECS.h>
 #include "../Geometry/Vertex.h"
 
 

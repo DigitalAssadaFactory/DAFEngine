@@ -47,6 +47,9 @@ namespace DAF
 
 		std::map<int, std::vector<Graphics::DrawData>>    Graphics::m_DrawCache;
 		std::vector<size_t>                               Graphics::m_activeCameras;
+		std::vector<Graphics::LightBuffer>                Graphics::m_activeLights;
+		__COM__<ID3D11Buffer>                             Graphics::m_lightResource;
+		__COM__<ID3D11ShaderResourceView>                 Graphics::m_lightResourceView;
 	}
 
 
@@ -76,6 +79,38 @@ namespace DAF
 
 		void Graphics::Exit() {
 			delete core;
+		}
+
+		void Graphics::Fullscreen()
+		{
+			BOOL isFullscreen;
+			m_pSwapChain.Get()->GetFullscreenState(&isFullscreen, NULL);
+			Resize();
+
+			DXGI_SWAP_CHAIN_DESC swap_desc;
+			m_pSwapChain->GetDesc(&swap_desc);
+			DXGI_MODE_DESC desc = swap_desc.BufferDesc;
+			desc.RefreshRate.Numerator = 0;
+			desc.RefreshRate.Denominator = 0;
+
+			hr = m_pSwapChain->ResizeTarget(&desc);
+			LogError(hr, "ResizeTarget failed.");
+
+			hr = m_pSwapChain->SetFullscreenState(!isFullscreen, NULL);
+			LogError(hr, "SetFullscreen failed.");
+
+			Resize(Defaults::FULL_SCREEN_WIDTH-1, Defaults::FULL_SCREEN_HEIGHT-1);
+		}
+
+		void Graphics::Resize(size_t newWidth, size_t newHeight, DXGI_FORMAT newFormat, UINT newFlags, UINT newBufferCount)
+		{
+			if (m_pSwapChain.Get() != nullptr)
+			{
+				m_pContext->OMSetRenderTargets(0, 0, 0);
+				m_pContext->ClearState();
+				hr = m_pSwapChain->ResizeBuffers(newBufferCount, newWidth, newHeight, newFormat, newFlags);
+				LogError(hr, "ResizeBuffers failed.");
+			}
 		}
 
 		/*void Graphics::Dispatch(
@@ -465,7 +500,6 @@ namespace DAF
 
 			for (auto& t : _rend.textures)
 			{
-				int i = 0;
 				for (int i = 1; i < Component::Texture2D::name.size(); ++i)
 				{
 					if (Component::Texture2D::name[i] == t)
@@ -475,7 +509,6 @@ namespace DAF
 						_dd.psResources.push_back(srv);
 						break;
 					}
-					else ++i;
 				}
 			}
 
@@ -493,11 +526,11 @@ namespace DAF
 		{
 			core->AddComponent<Texture2D>();
 			auto _tex = core->GetComponent<Texture2D>(-1);
-			_tex.name = UniqueName(path.filename().string() + Caster::Str(type));
+			_tex.name = UniqueName(path.filename().string() + To::String(type));
 			_tex.format = format;
 			_tex.width = width;
 			_tex.height = height;
-			_tex.type = Caster::Str(type);
+			_tex.type = To::String(type);
 			_tex.storageType = storageType;
 
 			if (path.extension().string() == ".dds")
@@ -554,8 +587,51 @@ namespace DAF
 
 		void Graphics::AddLight(const Entity& e)
 		{
-			auto light = e.GetComponent<Light>();
+			for (int i = 0; i < ECS_GetHandle(e.GetID(), Light).size(); ++i)
+			{
+				auto l = e.GetComponent<Light>(i);
+				if (l.type != LightType::Directional)
+				{
+					for (int j = 0; j < ECS_GetHandle(e.GetID(), Transform).size(); ++j)
+					{
+						auto t = e.GetComponent<Transform>(j);
+						XMMATRIX tm = XMMatrixTranslation(t.position.x, t.position.y, t.position.z);
+						XMMATRIX rm = XMMatrixRotationRollPitchYaw(
+							XMConvertToRadians(t.rotation.x),
+							XMConvertToRadians(t.rotation.y),
+							XMConvertToRadians(t.rotation.z));
+						XMMATRIX m = XMMatrixIdentity() * rm * tm;
 
+						LightBuffer lightBuffer;
+						XMStoreFloat3(
+							&lightBuffer.position,
+							XMVector3Transform(XMLoadFloat3(&l.position), m)
+						);
+						XMStoreFloat3(
+							&lightBuffer.direction,
+							XMVector3Transform(XMLoadFloat3(&l.direction), m)
+						);
+						lightBuffer.color = l.color;
+						lightBuffer.intensity = l.intensity;
+						lightBuffer.type = (int)l.type;
+						m_activeLights.push_back(lightBuffer);
+					}
+				}
+				else
+				{
+					LightBuffer lightBuffer;
+					lightBuffer.position = l.position;
+					lightBuffer.direction = l.direction;
+					lightBuffer.color = l.color;
+					lightBuffer.intensity = l.intensity;
+					lightBuffer.type = (int)l.type;
+					m_activeLights.push_back(lightBuffer);
+				}
+			}
+			// temporary solution: the first light is to store light count in type slot
+			m_activeLights[0].type = m_activeLights.size();
+			CreateResourceBuffer(m_activeLights, m_lightResource);
+			CreateSRV(m_lightResource, m_lightResourceView);
 		}
 
 
@@ -752,22 +828,21 @@ namespace DAF
 				m_pSwapChain.GetAddressOf(),
 				m_pDevice.GetAddressOf(),
 				NULL,
-				m_pContext.GetAddressOf());
+				m_pContext.GetAddressOf()
+			);
 			LogError(hr, "Swap creation failed.");
 
 
 			m_RTV_array.push_back(__COM__<ID3D11RenderTargetView>());
 			size_t index = m_RTV_array.size() - 1;
 
-			core->AddComponent<Component::Texture2D>();
-			auto rtvTex = core->GetComponent<Component::Texture2D>(-1);
-			rtvTex.name = "BackBuffer";
-
-			hr = m_pSwapChain->GetBuffer(0, __uuidof(ID3D11Texture2D), (void**)rtvTex.DX11Texture.GetAddressOf());
+			ID3D11Resource* pBackBuffer = nullptr;
+			hr = m_pSwapChain->GetBuffer(0, __uuidof(ID3D11Texture2D), (void**)(&pBackBuffer));
 			LogError(hr, "Getting BackBuffer failed.");
 
-			hr = m_pDevice->CreateRenderTargetView(rtvTex.DX11Texture.Get(), 0, m_RTV_array[index].GetAddressOf());
+			hr = m_pDevice->CreateRenderTargetView(pBackBuffer, 0, m_RTV_array[index].GetAddressOf());
 			LogError(hr, "RTV creation failed.");
+			pBackBuffer->Release();
 		}
 
 		void Graphics::InitShaders()
@@ -835,7 +910,9 @@ namespace DAF
 		}
 
 		void Graphics::InitBuffers() {
-
+			LightBuffer lightCache;
+			lightCache.type = 0; // temporary solution: the first light is to store light count in type slot
+			m_activeLights.push_back(lightCache);
 		}
 
 
@@ -977,11 +1054,13 @@ namespace DAF
 		}
 
 		inline void Graphics::Draw() {
+			//SetTopology(Topology::LineStrip);
 			SetTopology(Topology::TriangleList);
 
 			for (const auto& ac : m_activeCameras) {
 				m_pContext->VSSetConstantBuffers(0, 1, Component::Camera::mvpConstantBuffer[ac].GetAddressOf());
 				m_pContext->RSSetViewports(1, &m_VP_array[(size_t)Component::Camera::viewport[ac]]);
+				m_pContext->PSSetShaderResources(0, 1, m_lightResourceView.GetAddressOf());
 
 				for (size_t dm = 0; dm < 1; dm++)
 					for (size_t vs = 1; vs < VertexShader::name.size(); ++vs) {
@@ -990,7 +1069,7 @@ namespace DAF
 							SetPixelShader(PS(ps));
 
 							if (Component::VertexShader::DX11ConstantBuffers[vs].size())
-								m_pContext->VSSetConstantBuffers(2, Component::VertexShader::DX11ConstantBuffers[vs].size(),
+								m_pContext->VSSetConstantBuffers(1, Component::VertexShader::DX11ConstantBuffers[vs].size(),
 									Component::VertexShader::DX11ConstantBuffers[vs][0].GetAddressOf());
 
 							if (Component::PixelShader::DX11ConstantBuffers[ps].size())
@@ -1004,9 +1083,9 @@ namespace DAF
 								const UINT vstride = dd.vertexStride;
 
 								m_pContext->VSSetShaderResources(0, 1, dd.instanceBufferView.GetAddressOf());
-
+								
 								if (dd.psResources.size())
-									m_pContext->PSSetShaderResources(0, dd.psResources.size(), dd.psResources[0].GetAddressOf());
+									m_pContext->PSSetShaderResources(1, dd.psResources.size(), dd.psResources[0].GetAddressOf());
 
 								m_pContext->IASetVertexBuffers(0, 1, dd.vertexBuffer.GetAddressOf(), &vstride, &offset);
 								m_pContext->IASetIndexBuffer(dd.indexBuffer.Get(), DXGI_FORMAT::DXGI_FORMAT_R32_UINT, 0);
@@ -1057,8 +1136,8 @@ namespace DAF
 			_vs.model = vsModel;
 			_vs.inputLayout = inputLayoutName;
 
-			std::wstring fullPath(Caster::Wstr(path) + Caster::Wstr(vsFileName) + L".hlsl");
-			std::string errorDisplay("PATH : " + Caster::Str(fullPath) + "\n" +
+			std::wstring fullPath(To::WString(path) + To::WString(vsFileName) + L".hlsl");
+			std::string errorDisplay("PATH : " + To::String(fullPath) + "\n" +
 				"FILENAME : " + vsFileName + "\n"
 				"MODEL : " + vsModel + "\n"
 				"ENTRYPOINT : " + entryPoint);
@@ -1102,8 +1181,8 @@ namespace DAF
 			_ps.path = path;
 			_ps.model = psModel;
 
-			std::wstring fullPath(Caster::Wstr(path) + Caster::Wstr(psFileName) + L".hlsl");
-			std::string errorDisplay("PATH : " + Caster::Str(fullPath) + "\n" +
+			std::wstring fullPath(To::WString(path) + To::WString(psFileName) + L".hlsl");
+			std::string errorDisplay("PATH : " + To::String(fullPath) + "\n" +
 				"FILENAME : " + psFileName + "\n"
 				"MODEL : " + psModel + "\n"
 				"ENTRYPOINT : " + entryPoint);
@@ -1130,8 +1209,8 @@ namespace DAF
 			_cs.path = path;
 			_cs.model = csModel;
 
-			std::wstring fullPath(Caster::Wstr(path) + Caster::Wstr(csFileName) + L".hlsl");
-			std::string errorDisplay("PATH : " + Caster::Str(fullPath) + "\n" +
+			std::wstring fullPath(To::WString(path) + To::WString(csFileName) + L".hlsl");
+			std::string errorDisplay("PATH : " + To::String(fullPath) + "\n" +
 				"FILENAME : " + csFileName + "\n"
 				"MODEL : " + csModel + "\n"
 				"ENTRYPOINT : " + entryPoint);
@@ -1159,7 +1238,7 @@ namespace DAF
 			_vs.path = path;
 			_vs.inputLayout = inputLayoutName;
 
-			std::wstring fullPath(Caster::Wstr(path) + Caster::Wstr(vsFileName) + L".cso");
+			std::wstring fullPath(To::WString(path) + To::WString(vsFileName) + L".cso");
 			hr = D3DReadFileToBlob(fullPath.c_str(), _vs.blob.GetAddressOf());
 			LogError(hr, "VS Blob reading failed.");
 
@@ -1194,7 +1273,7 @@ namespace DAF
 			_ps.name = psFileName;
 			_ps.path = path;
 
-			std::wstring fullPath(Caster::Wstr(path) + Caster::Wstr(psFileName) + L".cso");
+			std::wstring fullPath(To::WString(path) + To::WString(psFileName) + L".cso");
 			hr = D3DReadFileToBlob(fullPath.c_str(), _ps.blob.GetAddressOf());
 			LogError(hr, "PS Blob reading failed.");
 
@@ -1213,7 +1292,7 @@ namespace DAF
 			_cs.name = csFileName;
 			_cs.path = path;
 
-			std::wstring fullPath(Caster::Wstr(path) + Caster::Wstr(csFileName) + L".cso");
+			std::wstring fullPath(To::WString(path) + To::WString(csFileName) + L".cso");
 			hr = D3DReadFileToBlob(fullPath.c_str(), _cs.blob.GetAddressOf());
 			LogError(hr, "CS Blob reading failed.");
 
@@ -1237,6 +1316,7 @@ namespace DAF
 
 		void Graphics::CreateRenderTargetView()
 		{
+			// not ready to use
 			m_RTV_array.push_back(__COM__<ID3D11RenderTargetView>());
 			size_t index = m_RTV_array.size() - 1;
 

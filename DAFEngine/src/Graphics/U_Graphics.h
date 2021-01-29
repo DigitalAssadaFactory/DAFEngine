@@ -1,6 +1,6 @@
 #pragma once
-#include "../ECS.h"
-#include "../Utility.h"
+#include <DAF_ECS.h>
+#include <DAF_Utility.h>
 
 
 namespace DAF::ECS::Utility::Graphics
